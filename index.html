@@ -28,7 +28,7 @@
 body{font-family:'Mulish',sans-serif;font-size:16px;color:var(--black);background:var(--white);display:flex;min-height:100vh;}
 
 /* SIDEBAR */
-.sidebar{width:var(--sidebar-w);background:var(--navy);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;display:flex;flex-direction:column;z-index:100;}
+.sidebar{width:var(--sidebar-w);background:#02114B;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;display:flex;flex-direction:column;z-index:100;}
 .sidebar-logo{padding:28px 24px 24px;border-bottom:1px solid rgba(255,255,255,0.12);}
 .sidebar-logo img{width:140px;display:block;}
 .sidebar-label{font-size:10px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);padding:24px 24px 8px;}
@@ -42,12 +42,17 @@ body{font-family:'Mulish',sans-serif;font-size:16px;color:var(--black);backgroun
 .main{margin-left:var(--sidebar-w);flex:1;min-width:0;}
 
 /* HERO */
-.hero{background:var(--navy);padding:72px 64px 60px;position:relative;overflow:hidden;}
+.hero{background:var(--navy);padding:60px 64px 56px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(39,189,190,0.15) 0%,transparent 70%);pointer-events:none;}
 .hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;}
-.hero h1{font-size:52px;font-weight:900;color:var(--white);line-height:1.05;margin-bottom:20px;position:relative;z-index:1;}
-.hero-sub{color:rgba(255,255,255,0.65);font-size:18px;line-height:1.6;max-width:560px;position:relative;z-index:1;font-weight:400;}
-.hero-bug{position:absolute;right:64px;top:50%;transform:translateY(-50%);opacity:0.9;}
+.hero-layout{display:flex;align-items:stretch;justify-content:space-between;}
+.hero-left{flex-shrink:0;display:flex;flex-direction:column;}
+.hero-right{width:700px;flex-shrink:0;padding-top:4px;}
+.hero-bug{margin-top:auto;padding-top:16px;}
+.hero-bug img{width:100px;display:block;margin-bottom:4px;}
+.hero h1{font-size:52px;font-weight:900;color:var(--white);line-height:1.05;margin-bottom:0;position:relative;z-index:1;white-space:nowrap;}
+.hero-sub{color:rgba(255,255,255,0.65);font-size:14px;line-height:1.7;position:relative;z-index:1;font-weight:400;text-wrap:pretty;}
+
 
 /* SECTIONS */
 .section{padding:64px;border-bottom:1px solid #E5E7EB;}
@@ -90,7 +95,6 @@ body{font-family:'Mulish',sans-serif;font-size:16px;color:var(--black);backgroun
 .type-samples{border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;}
 .type-row{display:grid;grid-template-columns:160px 1fr auto;align-items:center;gap:24px;padding:20px 24px;border-bottom:1px solid #E5E7EB;}
 .type-row:last-child{border-bottom:none;}
-.type-row:hover{background:var(--gray-light);}
 .type-label{font-size:12px;font-weight:800;color:var(--gray-mid);font-family:monospace;}
 .type-meta{font-size:11px;color:#9CA3AF;text-align:right;white-space:nowrap;font-family:monospace;}
 
@@ -175,6 +179,27 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
 .icon-hover-overlay .dl-btn{padding:4px 8px;font-size:10px;min-width:32px;}
 
 
+
+/* COLOR SPECTRUMS */
+.spectrum-swatch.primary{position:relative;}
+.spectrum-swatch.primary::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:6px;height:6px;background:var(--navy);border-radius:50%;}
+
+.spectrum-container{display:flex;flex-direction:column;gap:16px;}
+.spectrum-row{display:flex;flex-direction:column;gap:4px;}
+.spectrum-label{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:2px;}
+.spectrum-strip{display:flex;gap:0;border-radius:8px;overflow:visible;margin-bottom:12px;}
+.spectrum-swatch{flex:1;aspect-ratio:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.15s;min-width:0;}
+.spectrum-swatch:hover{transform:scale(1.08);z-index:1;box-shadow:0 2px 8px rgba(0,0,0,0.2);border-radius:4px;}
+.spec-hex{font-family:'Mulish',sans-serif;font-size:10px;opacity:0;transition:opacity 0.15s;white-space:nowrap;}
+.spectrum-swatch:hover .spec-hex{opacity:1;}
+
+/* BRAND IN ACTION */
+.bia-section{margin-bottom:48px;}
+.bia-section:last-child{margin-bottom:0;}
+.bia-title{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--teal);}
+.bia-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.bia-placeholder{border-radius:12px;border:2px dashed #D1D5DB;background:var(--gray-light);padding:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--gray-mid);font-size:14px;font-weight:600;grid-column:1/-1;}
+
 /* FOOTER */
 .footer{padding:32px 64px;background:var(--gray-light);border-top:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .footer-text{font-size:13px;color:var(--gray-mid);}
@@ -193,7 +218,7 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
   .main{margin-left:0;}
   .hero,.section{padding:48px 28px;}
   .hero h1{font-size:36px;}
-  .hero-bug{display:none;}
+  .hero-layout{flex-direction:column;gap:20px;}
   .do-dont{grid-template-columns:1fr;}
   .type-row{grid-template-columns:1fr;}
   .footer{flex-direction:column;text-align:center;}
@@ -210,10 +235,10 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
   <nav>
     <a href="#identity" class="active">
       <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg>
-      Brand Identity
+      Brand Guide
     </a>
     <a href="#logos">
-      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      <svg class="nav-icon" width="18" height="20" viewBox="0 0 18 20" fill="none" stroke="currentColor"><path d="M1 5.49757V14.5" stroke-width="2"/><path d="M8.97425 10L1 14.5012L8.97425 19L16.9461 14.5012L8.97425 10Z" stroke-width="2" stroke-linejoin="round"/><path d="M8.97425 1L1 5.5012L8.97425 9.99999L16.9461 5.5012L8.97425 1Z" stroke-width="2" stroke-linejoin="round"/></svg>
       Logo
     </a>
     <a href="#colors">
@@ -230,44 +255,53 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
     </a>
     <a href="#images">
       <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-      Imagery
+      Photography
     </a>
     <a href="#icons">
-      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg>
+      <svg class="nav-icon" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.75" width="13.3694" height="18" rx="3.9818" stroke="currentColor" stroke-width="1.5"/><path d="M4.4837 10.8445V4.9422H6.02345C6.8703 4.9422 7.56319 5.69282 7.56319 6.61025C7.56319 7.52767 6.8703 8.27829 6.02345 8.27829H4.4837" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.1298 13.9238L6.0238 8.27808" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.04982 13.924L10.3859 9.81805" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Icons
+    </a>
+    <a href="#brand-in-action">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+      Brand in Action
     </a>
     <a href="#ai">
       <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
       Pair with AI
     </a>
   </nav>
-  <a class="sidebar-ai-btn" href="#ai">&#x26A1; Pair with AI</a>
+
 </aside>
 
 <main class="main">
   <div class="hero" id="identity">
-    <div class="hero-eyebrow">Covetrus &mdash; Official Brand Standards</div>
-    <h1>Brand Guide</h1>
-    <p class="hero-sub">Everything you need to create consistent, on-brand experiences across software, documents, marketing, and AI-generated content.</p>
-    <div class="hero-bug"><img src="data:image/svg+xml,%3Csvg%20width%3D%2281%22%20height%3D%2275%22%20viewBox%3D%220%200%2081%2075%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cg%20clip-path%3D%22url%28%23clip0_3_209%29%22%3E%0A%3Cpath%20d%3D%22M41.0699%2036.9301L8.02991%2018.2901V55.5801L41.0699%2036.9301Z%22%20fill%3D%22white%22/%3E%0A%3Cpath%20d%3D%22M41.0699%2036.9301L8.02991%2055.5801L41.0699%2074.2201L74.0999%2055.5801L41.0699%2036.9301Z%22%20fill%3D%22%2327BDBE%22/%3E%0A%3Cpath%20d%3D%22M41.0699%20-0.359924L8.02991%2018.2901L41.0699%2036.9301L74.0999%2018.2901L41.0699%20-0.359924Z%22%20fill%3D%22%23ED3030%22/%3E%0A%3Cpath%20d%3D%22M72.3199%2063.8001C72.8499%2064.1101%2073.2699%2064.5201%2073.5799%2065.0601C73.8899%2065.5901%2074.0399%2066.1801%2074.0399%2066.8201C74.0399%2067.4601%2073.8899%2068.0601%2073.5799%2068.5901C73.2699%2069.1201%2072.8499%2069.5401%2072.3199%2069.8501C71.7799%2070.1601%2071.1899%2070.3101%2070.5499%2070.3101C69.9099%2070.3101%2069.3199%2070.1601%2068.7799%2069.8501C68.2499%2069.5401%2067.8199%2069.1201%2067.5199%2068.5901C67.2099%2068.0601%2067.0599%2067.4701%2067.0599%2066.8201C67.0599%2066.1701%2067.2099%2065.5801%2067.5199%2065.0501C67.8299%2064.5201%2068.2499%2064.1101%2068.7799%2063.8001C69.3099%2063.4901%2069.8999%2063.3401%2070.5499%2063.3401C71.1999%2063.3401%2071.7899%2063.4901%2072.3199%2063.8001ZM72.0899%2069.4801C72.5499%2069.2101%2072.9099%2068.8401%2073.1799%2068.3801C73.4399%2067.9101%2073.5699%2067.3901%2073.5699%2066.8201C73.5699%2066.2501%2073.4399%2065.7401%2073.1799%2065.2701C72.9199%2064.8101%2072.5499%2064.4401%2072.0899%2064.1701C71.6299%2063.9001%2071.1199%2063.7701%2070.5499%2063.7701C69.9799%2063.7701%2069.4699%2063.9001%2068.9999%2064.1701C68.5399%2064.4401%2068.1699%2064.8001%2067.9099%2065.2701C67.6499%2065.7301%2067.5099%2066.2501%2067.5099%2066.8201C67.5099%2067.3901%2067.6399%2067.9201%2067.9099%2068.3801C68.1699%2068.8401%2068.5399%2069.2101%2068.9999%2069.4801C69.4599%2069.7501%2069.9799%2069.8801%2070.5499%2069.8801C71.1199%2069.8801%2071.6299%2069.7501%2072.0899%2069.4801ZM71.7399%2067.6201L72.4899%2068.8901H71.6899L70.92%2067.5701C70.84%2067.4501%2070.76%2067.3601%2070.67%2067.3101C70.58%2067.2601%2070.4599%2067.2401%2070.3199%2067.2401H69.8099V68.8901H69.0899V64.7601H70.8099C71.2699%2064.7601%2071.6199%2064.8701%2071.8699%2065.0801C72.1199%2065.3001%2072.2399%2065.6001%2072.2399%2065.9901C72.2399%2066.3101%2072.1499%2066.5701%2071.9699%2066.7801C71.7799%2066.9901%2071.5199%2067.1201%2071.1899%2067.1701C71.3999%2067.2301%2071.5899%2067.3801%2071.7399%2067.6201ZM71.3299%2066.5101C71.4599%2066.4001%2071.5199%2066.2401%2071.5199%2066.0101C71.5199%2065.7701%2071.4599%2065.6001%2071.3299%2065.4901C71.1999%2065.3801%2070.9999%2065.3301%2070.7199%2065.3301H69.7999V66.6601H70.7199C70.9999%2066.6601%2071.1999%2066.6101%2071.3299%2066.5001%22%20fill%3D%22white%22/%3E%0A%3C/g%3E%0A%3Cdefs%3E%0A%3CclipPath%20id%3D%22clip0_3_209%22%3E%0A%3Crect%20width%3D%2281%22%20height%3D%2275%22%20fill%3D%22white%22/%3E%0A%3C/clipPath%3E%0A%3C/defs%3E%0A%3C/svg%3E" alt="" style="width:90px;" /></div>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Covetrus Brand Standards</div>
+        <h1>Brand Guide</h1>
+        <div class="hero-bug"><img src="data:image/svg+xml,%3Csvg%20width%3D%2281%22%20height%3D%2275%22%20viewBox%3D%220%200%2081%2075%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cg%20clip-path%3D%22url%28%23clip0_3_209%29%22%3E%0A%3Cpath%20d%3D%22M41.0699%2036.9301L8.02991%2018.2901V55.5801L41.0699%2036.9301Z%22%20fill%3D%22white%22/%3E%0A%3Cpath%20d%3D%22M41.0699%2036.9301L8.02991%2055.5801L41.0699%2074.2201L74.0999%2055.5801L41.0699%2036.9301Z%22%20fill%3D%22%2327BDBE%22/%3E%0A%3Cpath%20d%3D%22M41.0699%20-0.359924L8.02991%2018.2901L41.0699%2036.9301L74.0999%2018.2901L41.0699%20-0.359924Z%22%20fill%3D%22%23ED3030%22/%3E%0A%3Cpath%20d%3D%22M72.3199%2063.8001C72.8499%2064.1101%2073.2699%2064.5201%2073.5799%2065.0601C73.8899%2065.5901%2074.0399%2066.1801%2074.0399%2066.8201C74.0399%2067.4601%2073.8899%2068.0601%2073.5799%2068.5901C73.2699%2069.1201%2072.8499%2069.5401%2072.3199%2069.8501C71.7799%2070.1601%2071.1899%2070.3101%2070.5499%2070.3101C69.9099%2070.3101%2069.3199%2070.1601%2068.7799%2069.8501C68.2499%2069.5401%2067.8199%2069.1201%2067.5199%2068.5901C67.2099%2068.0601%2067.0599%2067.4701%2067.0599%2066.8201C67.0599%2066.1701%2067.2099%2065.5801%2067.5199%2065.0501C67.8299%2064.5201%2068.2499%2064.1101%2068.7799%2063.8001C69.3099%2063.4901%2069.8999%2063.3401%2070.5499%2063.3401C71.1999%2063.3401%2071.7899%2063.4901%2072.3199%2063.8001ZM72.0899%2069.4801C72.5499%2069.2101%2072.9099%2068.8401%2073.1799%2068.3801C73.4399%2067.9101%2073.5699%2067.3901%2073.5699%2066.8201C73.5699%2066.2501%2073.4399%2065.7401%2073.1799%2065.2701C72.9199%2064.8101%2072.5499%2064.4401%2072.0899%2064.1701C71.6299%2063.9001%2071.1199%2063.7701%2070.5499%2063.7701C69.9799%2063.7701%2069.4699%2063.9001%2068.9999%2064.1701C68.5399%2064.4401%2068.1699%2064.8001%2067.9099%2065.2701C67.6499%2065.7301%2067.5099%2066.2501%2067.5099%2066.8201C67.5099%2067.3901%2067.6399%2067.9201%2067.9099%2068.3801C68.1699%2068.8401%2068.5399%2069.2101%2068.9999%2069.4801C69.4599%2069.7501%2069.9799%2069.8801%2070.5499%2069.8801C71.1199%2069.8801%2071.6299%2069.7501%2072.0899%2069.4801ZM71.7399%2067.6201L72.4899%2068.8901H71.6899L70.92%2067.5701C70.84%2067.4501%2070.76%2067.3601%2070.67%2067.3101C70.58%2067.2601%2070.4599%2067.2401%2070.3199%2067.2401H69.8099V68.8901H69.0899V64.7601H70.8099C71.2699%2064.7601%2071.6199%2064.8701%2071.8699%2065.0801C72.1199%2065.3001%2072.2399%2065.6001%2072.2399%2065.9901C72.2399%2066.3101%2072.1499%2066.5701%2071.9699%2066.7801C71.7799%2066.9901%2071.5199%2067.1201%2071.1899%2067.1701C71.3999%2067.2301%2071.5899%2067.3801%2071.7399%2067.6201ZM71.3299%2066.5101C71.4599%2066.4001%2071.5199%2066.2401%2071.5199%2066.0101C71.5199%2065.7701%2071.4599%2065.6001%2071.3299%2065.4901C71.1999%2065.3801%2070.9999%2065.3301%2070.7199%2065.3301H69.7999V66.6601H70.7199C70.9999%2066.6601%2071.1999%2066.6101%2071.3299%2066.5001%22%20fill%3D%22white%22/%3E%0A%3C/g%3E%0A%3Cdefs%3E%0A%3CclipPath%20id%3D%22clip0_3_209%22%3E%0A%3Crect%20width%3D%2281%22%20height%3D%2275%22%20fill%3D%22white%22/%3E%0A%3C/clipPath%3E%0A%3C/defs%3E%0A%3C/svg%3E" alt="" /></div>
+      </div>
+      <div class="hero-right">
+        <p class="hero-sub">Our brand is one of the most valuable assets we have. Every time someone encounters our name, our work, or our content, whether in a product, a proposal, a social post, or an AI-generated output, they form an impression of who we are. Consistency is what turns those individual moments into a recognizable, trustworthy identity. This guide exists so that anyone creating on behalf of the company, from designers and marketers to sales teams and AI tools, has everything they need to show up as one coherent brand. Use it as your starting point, your reference, and your guardrail. If you have questions about application or need something that isn&rsquo;t covered here, reach out to the Creative team. Any assets intended for external release should be reviewed and approved by Creative before going out, and materials that represent the company publicly should be reviewed by Legal to protect both the business and the credibility of the brand.</p>
+      </div>
+    </div>
   </div>
 
   <!-- LOGOS -->
   <section class="section fade-in" id="logos">
-    <div class="section-header">
-      <div class="section-number">01 &mdash; Logo</div>
-      <h2>Logo Variants</h2>
-      <p class="section-desc">Eight approved logo variants for every context. Download in SVG, PNG, or JPG directly from each card.</p>
-    </div>
-
-    <div class="format-legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--navy);"></div> SVG &mdash; Scalable, ideal for web &amp; dev</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--teal);"></div> PNG &mdash; Transparent background, general use</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--action-blue);"></div> JPG &mdash; PowerPoint &amp; presentations</div>
-
-    </div>
-
-    <div class="logo-grid">
+    <div class="section-header" style="display:flex;align-items:flex-start;gap:48px;">
+      <div style="flex-shrink:0;max-width:360px;">
+        <h2>Logo</h2>
+        <p class="section-desc" style="font-size:14px;max-width:none;margin-top:16px;text-wrap:pretty;">The Covetrus master brand logo is the foundation, but our portfolio includes a family of point solution logos that extend the brand across our products and services. Each point solution logo has been designed to work within the Covetrus brand system while carrying its own identity.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">All logo versions are stored in our central asset library on SharePoint. Always pull logo files from this source to ensure you are using the most current, approved version. Do not recreate, alter, or source logos from anywhere else.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">If you need a logo version that isn&rsquo;t available or have questions about usage, contact the Creative team before proceeding.</p>
+        <div style="margin-top:40px;background:var(--gray-light);border-radius:10px;padding:20px 24px;">
+          <p style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:14px;">Looking for another Covetrus logo?</p>
+          <a href="https://covetrus.sharepoint.com/:f:/s/BrandAssets/IgDO0Pt8Pm6LQpoWqLCs0UmaAcVT-jtH_BWEVjaP09Mourc?e=YM6FUE" target="_blank" class="dl-btn dl-svg" style="display:inline-flex;align-items:center;gap:6px;padding:10px 16px;font-size:13px;">Browse the full set</a>
+        </div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div class="logo-grid" style="grid-template-columns:repeat(2,1fr);">
       
       <div class="logo-card">
         <div class="logo-preview" style="background:#fff;">
@@ -399,8 +433,13 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
         </div>
       </div>
     </div>
+      </div>
+    </div>
 
-    <div class="do-dont" style="margin-top:36px;">
+    <div style="display:flex;gap:48px;margin-top:24px;">
+      <div style="flex-shrink:0;width:360px;"></div>
+      <div style="flex:1;min-width:0;">
+        <div class="do-dont">
       <div class="do-card">
         <h4>&#x2713; Do</h4>
         <ul>
@@ -414,102 +453,242 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
       <div class="dont-card">
         <h4>&#x00D7; Don&apos;t</h4>
         <ul>
-          <li>Recolor, rotate, skew, or distort the logo in any way</li>
-          <li>Add shadows, outlines, gradients, or effects</li>
-          <li>Use the RGB logo on dark backgrounds</li>
-          <li>Use the wordmark smaller than 120px wide on screen</li>
-          <li>Need a large-format JPG? Contact the Design Team</li>
+          <li>Modify colors, rotate, skew or distort elements</li>
+          <li>Add shadows, outlines, gradients or effects</li>
+          <li>Move or modify the &reg; or &trade; symbols</li>
+          <li>Move or rearrange elements</li>
+          <li>Create new logos without involving the creative team</li>
         </ul>
+      </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- COLORS -->
   <section class="section fade-in" id="colors">
-    <div class="section-header">
-      <div class="section-number">02 &mdash; Color</div>
-      <h2>Color Palette</h2>
-      <p class="section-desc">Official brand colors. Click any hex value to copy it to your clipboard.</p>
-    </div>
-    <p style="font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:16px;">Primary</p>
-    <div class="color-grid">
-      <div class="swatch">
-        <div class="swatch-color" style="background:#021660;">
-          <button class="swatch-copy-btn" onclick="copyHex('#021660',this)">#021660</button>
-        </div>
-        <div class="swatch-info"><div class="swatch-name">Vet Blue</div><div class="swatch-meta">rgb(2,22,96) · Primary</div></div>
+    <div style="display:flex;align-items:flex-start;gap:48px;">
+      <div style="flex-shrink:0;max-width:360px;">
+        <h2>Color Palette</h2>
+        <p class="section-desc" style="font-size:14px;max-width:none;margin-top:16px;text-wrap:pretty;">Color is one of the most immediate and powerful expressions of our brand. Used consistently, our palette builds recognition over time, it becomes the visual shorthand that tells people, before they read a single word, that they are in Covetrus territory.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">Every color in our system has been chosen deliberately, with a defined role in how we communicate. Primary colors carry the weight of the brand and should do the most work across our touchpoints. Secondary and accent colors exist to support, not compete.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">Reaching for the right color in the right context is what keeps our brand feeling cohesive whether someone encounters us in a product interface, a sales deck, or a printed piece. Color also carries a responsibility beyond aesthetics, accessibility matters.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">All color combinations used for text, UI elements, and critical information must meet WCAG 2.1 AA contrast standards at minimum. This ensures our brand is not only recognizable but legible and inclusive for every audience. When in doubt, check your contrast ratio before it goes out.</p>
       </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#ED3030;">
-          <button class="swatch-copy-btn" onclick="copyHex('#ED3030',this)">#ED3030</button>
+      <div style="flex:1;min-width:0;">
+        <div class="spectrum-container">
+
+        <div class="spectrum-row">
+          <div class="spectrum-label">Greatpet Green</div>
+          <div class="spectrum-strip">
+<div class="spectrum-swatch" style="background:#EAF6F3;border:1px solid #E5E7EB;" onclick="copyHex('#EAF6F3',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#EAF6F3</span>
+          </div>
+<div class="spectrum-swatch" style="background:#CCF2D9;" onclick="copyHex('#CCF2D9',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#CCF2D9</span>
+          </div>
+<div class="spectrum-swatch" style="background:#96E6B2;" onclick="copyHex('#96E6B2',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#96E6B2</span>
+          </div>
+<div class="spectrum-swatch" style="background:#6ED299;" onclick="copyHex('#6ED299',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#6ED299</span>
+          </div>
+<div class="spectrum-swatch" style="background:#41B87F;" onclick="copyHex('#41B87F',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#41B87F</span>
+          </div>
+<div class="spectrum-swatch" style="background:#159F6C;" onclick="copyHex('#159F6C',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#159F6C</span>
+          </div>
+<div class="spectrum-swatch primary" style="background:#008556;" onclick="copyHex('#008556',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:800;font-size:12px;">#008556</span>
+          </div>
+<div class="spectrum-swatch" style="background:#015C43;" onclick="copyHex('#015C43',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#015C43</span>
+          </div>
+<div class="spectrum-swatch" style="background:#133A33;" onclick="copyHex('#133A33',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#133A33</span>
+          </div>
+          </div>
         </div>
-        <div class="swatch-info"><div class="swatch-name">Care Red</div><div class="swatch-meta">rgb(237,48,48) · Alerts &amp; Emphasis</div></div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#27BDBE;">
-          <button class="swatch-copy-btn" onclick="copyHex('#27BDBE',this)">#27BDBE</button>
+
+        <div class="spectrum-row">
+          <div class="spectrum-label">Tech Teal</div>
+          <div class="spectrum-strip">
+<div class="spectrum-swatch" style="background:#ECFCFC;border:1px solid #E5E7EB;" onclick="copyHex('#ECFCFC',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#ECFCFC</span>
+          </div>
+<div class="spectrum-swatch" style="background:#D7F5F2;" onclick="copyHex('#D7F5F2',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#D7F5F2</span>
+          </div>
+<div class="spectrum-swatch" style="background:#B1ECE6;" onclick="copyHex('#B1ECE6',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#B1ECE6</span>
+          </div>
+<div class="spectrum-swatch" style="background:#7CDCD9;" onclick="copyHex('#7CDCD9',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#7CDCD9</span>
+          </div>
+<div class="spectrum-swatch primary" style="background:#27BDBE;" onclick="copyHex('#27BDBE',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:800;font-size:12px;">#27BDBE</span>
+          </div>
+<div class="spectrum-swatch" style="background:#05A5A5;" onclick="copyHex('#05A5A5',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#05A5A5</span>
+          </div>
+<div class="spectrum-swatch" style="background:#0F7785;" onclick="copyHex('#0F7785',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#0F7785</span>
+          </div>
+<div class="spectrum-swatch" style="background:#0B4A53;" onclick="copyHex('#0B4A53',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#0B4A53</span>
+          </div>
+<div class="spectrum-swatch" style="background:#0C3238;" onclick="copyHex('#0C3238',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#0C3238</span>
+          </div>
+          </div>
         </div>
-        <div class="swatch-info"><div class="swatch-name">Tech Teal</div><div class="swatch-meta">rgb(39,189,190) · CTAs &amp; Links</div></div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#F7F7F7;border:1px solid #E5E7EB;">
-          <button class="swatch-copy-btn" style="background:rgba(0,0,0,0.08);border-color:rgba(0,0,0,0.18);color:#374151;" onclick="copyHex('#F7F7F7',this)">#F7F7F7</button>
+
+        <div class="spectrum-row">
+          <div class="spectrum-label">Vet Blue</div>
+          <div class="spectrum-strip">
+<div class="spectrum-swatch" style="background:#F3FBFF;border:1px solid #E5E7EB;" onclick="copyHex('#F3FBFF',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#F3FBFF</span>
+          </div>
+<div class="spectrum-swatch" style="background:#E8F7FF;border:1px solid #E5E7EB;" onclick="copyHex('#E8F7FF',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#E8F7FF</span>
+          </div>
+<div class="spectrum-swatch" style="background:#B3E0FF;" onclick="copyHex('#B3E0FF',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#B3E0FF</span>
+          </div>
+<div class="spectrum-swatch" style="background:#75C1FF;" onclick="copyHex('#75C1FF',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#75C1FF</span>
+          </div>
+<div class="spectrum-swatch" style="background:#46A2FB;" onclick="copyHex('#46A2FB',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#46A2FB</span>
+          </div>
+<div class="spectrum-swatch" style="background:#1474E5;" onclick="copyHex('#1474E5',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#1474E5</span>
+          </div>
+<div class="spectrum-swatch" style="background:#0055E7;" onclick="copyHex('#0055E7',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#0055E7</span>
+          </div>
+<div class="spectrum-swatch" style="background:#11338A;" onclick="copyHex('#11338A',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#11338A</span>
+          </div>
+<div class="spectrum-swatch primary" style="background:#021660;" onclick="copyHex('#021660',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:800;font-size:12px;">#021660</span>
+          </div>
+<div class="spectrum-swatch" style="background:#02114B;" onclick="copyHex('#02114B',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#02114B</span>
+          </div>
+          </div>
         </div>
-        <div class="swatch-info"><div class="swatch-name">Light Gray</div><div class="swatch-meta">rgb(247,247,247) · Background</div></div>
-      </div>
-    </div>
-    <p style="font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-mid);margin:28px 0 16px;">Accents</p>
-    <div class="color-grid">
-      <div class="swatch">
-        <div class="swatch-color" style="background:#0055E7;">
-          <button class="swatch-copy-btn" onclick="copyHex('#0055E7',this)">#0055E7</button>
+
+        <div class="spectrum-row">
+          <div class="spectrum-label">Neutral</div>
+          <div class="spectrum-strip">
+<div class="spectrum-swatch" style="background:#FFFFFF;border:1px solid #E5E7EB;" onclick="copyHex('#FFFFFF',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#FFFFFF</span>
+          </div>
+<div class="spectrum-swatch" style="background:#F7F7F7;border:1px solid #E5E7EB;" onclick="copyHex('#F7F7F7',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#F7F7F7</span>
+          </div>
+<div class="spectrum-swatch" style="background:#F1F1F1;border:1px solid #E5E7EB;" onclick="copyHex('#F1F1F1',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#F1F1F1</span>
+          </div>
+<div class="spectrum-swatch" style="background:#E8E8E8;border:1px solid #E5E7EB;" onclick="copyHex('#E8E8E8',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#E8E8E8</span>
+          </div>
+<div class="spectrum-swatch" style="background:#D9D9D9;" onclick="copyHex('#D9D9D9',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#D9D9D9</span>
+          </div>
+<div class="spectrum-swatch" style="background:#CACACA;" onclick="copyHex('#CACACA',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#CACACA</span>
+          </div>
+<div class="spectrum-swatch" style="background:#A9A9A9;" onclick="copyHex('#A9A9A9',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#A9A9A9</span>
+          </div>
+<div class="spectrum-swatch" style="background:#919090;" onclick="copyHex('#919090',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#919090</span>
+          </div>
+<div class="spectrum-swatch" style="background:#6E6E6E;" onclick="copyHex('#6E6E6E',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:800;font-size:12px;">#6E6E6E</span>
+          </div>
+<div class="spectrum-swatch" style="background:#484848;" onclick="copyHex('#484848',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#484848</span>
+          </div>
+<div class="spectrum-swatch" style="background:#2C2C2C;" onclick="copyHex('#2C2C2C',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#2C2C2C</span>
+          </div>
+<div class="spectrum-swatch" style="background:#191919;" onclick="copyHex('#191919',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#191919</span>
+          </div>
+          </div>
         </div>
-        <div class="swatch-info"><div class="swatch-name">Action Blue</div><div class="swatch-meta">rgb(0,85,231) · Interactive / Links</div></div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#008556;">
-          <button class="swatch-copy-btn" onclick="copyHex('#008556',this)">#008556</button>
+
+        <div class="spectrum-row">
+          <div class="spectrum-label">Care Red</div>
+          <div class="spectrum-strip">
+<div class="spectrum-swatch" style="background:#FFF5F5;border:1px solid #E5E7EB;" onclick="copyHex('#FFF5F5',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#FFF5F5</span>
+          </div>
+<div class="spectrum-swatch" style="background:#FCD9D9;" onclick="copyHex('#FCD9D9',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#FCD9D9</span>
+          </div>
+<div class="spectrum-swatch" style="background:#F9ABAB;" onclick="copyHex('#F9ABAB',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#F9ABAB</span>
+          </div>
+<div class="spectrum-swatch" style="background:#FF8585;" onclick="copyHex('#FF8585',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#191919;font-weight:600;font-size:10px;">#FF8585</span>
+          </div>
+<div class="spectrum-swatch primary" style="background:#ED3030;" onclick="copyHex('#ED3030',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:800;font-size:12px;">#ED3030</span>
+          </div>
+<div class="spectrum-swatch" style="background:#C01E2C;" onclick="copyHex('#C01E2C',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#C01E2C</span>
+          </div>
+<div class="spectrum-swatch" style="background:#A40E20;" onclick="copyHex('#A40E20',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#A40E20</span>
+          </div>
+<div class="spectrum-swatch" style="background:#750A17;" onclick="copyHex('#750A17',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#750A17</span>
+          </div>
+<div class="spectrum-swatch" style="background:#4F0615;" onclick="copyHex('#4F0615',this.querySelector('.spec-hex'))">
+            <span class="spec-hex" style="color:#FFFFFF;font-weight:600;font-size:10px;">#4F0615</span>
+          </div>
+          </div>
         </div>
-        <div class="swatch-info"><div class="swatch-name">Greatpet Green</div><div class="swatch-meta">rgb(0,133,86) · Greatpet / Success</div></div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#75C1FF;">
-          <button class="swatch-copy-btn" onclick="copyHex('#75C1FF',this)">#75C1FF</button>
         </div>
-        <div class="swatch-info"><div class="swatch-name">Medium Blue</div><div class="swatch-meta">rgb(117,193,255) · Icons &amp; Accents</div></div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#191919;">
-          <button class="swatch-copy-btn" onclick="copyHex('#191919',this)">#191919</button>
         </div>
-        <div class="swatch-info"><div class="swatch-name">Near Black</div><div class="swatch-meta">rgb(25,25,25) · Body Text</div></div>
-      </div>
-    </div>
-    <div style="margin-top:32px;">
-      <p style="font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:12px;">CSS Variables</p>
-      <div style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:10px;padding:20px 24px;font-family:monospace;font-size:13px;line-height:1.9;color:#374151;">
-        <span style="color:#9CA3AF;">/* Paste into your :root { } */</span><br>
-        <span style="color:#6366F1;">--color-vet-blue:</span> <span style="color:#059669;">#021660</span>;<br>
-        <span style="color:#6366F1;">--color-tech-teal:</span> <span style="color:#059669;">#27BDBE</span>;<br>
-        <span style="color:#6366F1;">--color-care-red:</span> <span style="color:#059669;">#ED3030</span>;<br>
-        <span style="color:#6366F1;">--color-action-blue:</span> <span style="color:#059669;">#0055E7</span>;<br>
-        <span style="color:#6366F1;">--color-medium-blue:</span> <span style="color:#059669;">#75C1FF</span>;<br>
-        <span style="color:#6366F1;">--color-greatpet-green:</span> <span style="color:#059669;">#008556</span>;<br>
-        <span style="color:#6366F1;">--color-black:</span> <span style="color:#059669;">#191919</span>;<br>
-        <span style="color:#6366F1;">--color-gray-light:</span> <span style="color:#059669;">#F7F7F7</span>;<br>
-        <span style="color:#6366F1;">--color-gray-mid:</span> <span style="color:#059669;">#6B7280</span>;
+
+        <div style="margin-top:28px;">
+          <p style="font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:12px;">CSS Variables</p>
+          <div style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:10px;padding:20px 24px;font-family:monospace;font-size:13px;line-height:1.9;color:#374151;">
+            <span style="color:#9CA3AF;">/* Paste into your :root { } */</span><br>
+            <span style="color:#6366F1;">--color-vet-blue:</span> <span style="color:#059669;">#021660</span>;<br>
+            <span style="color:#6366F1;">--color-tech-teal:</span> <span style="color:#059669;">#27BDBE</span>;<br>
+            <span style="color:#6366F1;">--color-care-red:</span> <span style="color:#059669;">#ED3030</span>;<br>
+            <span style="color:#6366F1;">--color-action-blue:</span> <span style="color:#059669;">#0055E7</span>;<br>
+            <span style="color:#6366F1;">--color-medium-blue:</span> <span style="color:#059669;">#75C1FF</span>;<br>
+            <span style="color:#6366F1;">--color-greatpet-green:</span> <span style="color:#059669;">#008556</span>;<br>
+            <span style="color:#6366F1;">--color-black:</span> <span style="color:#059669;">#191919</span>;<br>
+            <span style="color:#6366F1;">--color-gray-mid:</span> <span style="color:#059669;">#6B7280</span>;
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- TYPOGRAPHY -->
   <section class="section fade-in" id="typography">
-    <div class="section-header">
-      <div class="section-number">03 &mdash; Typography</div>
-      <h2>Type System</h2>
-      <p class="section-desc">Mulish is the Covetrus brand typeface &mdash; a clean, geometric sans-serif with excellent legibility at all sizes.</p>
-    </div>
-    <div class="type-samples">
+    <div style="display:flex;align-items:flex-start;gap:48px;">
+      <div style="flex-shrink:0;max-width:360px;">
+        <h2>Typography</h2>
+        <p class="section-desc" style="font-size:14px;max-width:none;margin-top:16px;text-wrap:pretty;">Type is the voice of our brand made visible. The fonts we use communicate personality, establish hierarchy, and directly affect how readable and accessible our content is, especially across digital surfaces.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">Our primary typeface is Mulish. We made a deliberate shift to Mulish because it is purpose-built for digital environments, optimized for screen rendering, highly legible at small sizes, and designed with accessibility in mind. Its clean, open letterforms perform consistently across interfaces, documents, and AI-generated content, making it the right choice for a brand that lives primarily in digital spaces.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">Mulish supports a wide range of weights, giving our designers and content creators the flexibility to establish clear visual hierarchy without reaching for a second typeface.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">For environments where Mulish cannot be rendered, most notably Microsoft Outlook and email clients, use Arial as the standard fallback. Arial shares Mulish&rsquo;s clean, sans-serif character and maintains a professional, readable appearance across all platforms and devices.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;"><strong style="color:var(--black);">Do not</strong> substitute decorative, serif, or system-default fonts like Calibri or Times New Roman, as these are inconsistent with our brand aesthetic.</p>
+        <p class="section-desc" style="margin-top:12px;font-size:14px;max-width:none;text-wrap:pretty;">Typography applied well creates clarity. Applied poorly, it creates friction. Respect the type hierarchy, use weights intentionally, and never sacrifice legibility for style.</p>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div class="type-samples">
       <div class="type-row">
         <div class="type-label">H1 / Display</div>
         <div style="font-size:48px;font-weight:900;color:var(--navy);line-height:1.05;">Advancing Vet Medicine</div>
@@ -549,12 +728,13 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
         Download Mulish Font (.ttf)
       </a>
     </div>
+      </div>
+    </div>
   </section>
 
   <!-- VOICE -->
   <section class="section fade-in" id="voice">
     <div class="section-header">
-      <div class="section-number">04 &mdash; Voice &amp; Tone</div>
       <h2>Voice &amp; Tone</h2>
       <p class="section-desc">Covetrus sounds confident, clear, warm, and forward-looking. We are a partner, not a vendor.</p>
     </div>
@@ -592,8 +772,7 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
   <!-- IMAGES -->
   <section class="section fade-in" id="images">
     <div class="section-header">
-      <div class="section-number">06 &mdash; Imagery</div>
-      <h2>Lifestyle Photography</h2>
+      <h2>Photography</h2>
       <p class="section-desc">Select a brand below to view and download approved lifestyle images for that brand.</p>
     </div>
 
@@ -655,8 +834,7 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
   <!-- ICONS -->
   <section class="section fade-in" id="icons">
     <div class="section-header">
-      <div class="section-number">07 &mdash; Icons</div>
-      <h2>Icon Library</h2>
+      <h2>Icons</h2>
       <p class="section-desc">32 icons available in 4 colorways. Each icon is downloadable as SVG or PNG.</p>
     </div>
 
@@ -927,11 +1105,49 @@ td code{font-size:12px;background:#EFF6FF;color:var(--navy);padding:2px 6px;bord
 
     </div>
   </section>
+
+  <!-- BRAND IN ACTION -->
+  <section class="section fade-in" id="brand-in-action">
+    <div class="section-header">
+      <h2>Brand in Action</h2>
+      <p class="section-desc">Real examples of how our brand elements come together across our product lines.</p>
+    </div>
+
+    <div class="bia-section">
+      <h3 class="bia-title">VetSuite</h3>
+      <div class="bia-gallery">
+        <div class="bia-placeholder">
+          <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:0.3;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Examples coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bia-section">
+      <h3 class="bia-title">GreatPet Care</h3>
+      <div class="bia-gallery">
+        <div class="bia-placeholder">
+          <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:0.3;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Examples coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bia-section">
+      <h3 class="bia-title">vRxPro</h3>
+      <div class="bia-gallery">
+        <div class="bia-placeholder">
+          <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:0.3;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Examples coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- AI -->
   <section class="section ai-section fade-in" id="ai">
     <div class="section-header">
-      <div class="section-number">08 &mdash; AI Pairing</div>
-      <h2>Pair This Guide with AI</h2>
+      <h2>Pair with AI</h2>
       <p class="section-desc">Download the machine-readable version and attach it to Claude, Copilot, or any AI tool for brand-consistent outputs every time.</p>
     </div>
     <div class="ai-steps">
